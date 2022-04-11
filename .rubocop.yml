@@ -1,0 +1,168 @@
+inherit_from: .rubocop_todo.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+require:
+  - rubocop-performance
+  - rubocop-rubycw
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rake
+
+Layout/LineLength:
+  Description: This cop checks the length of lines in the source code. The maximum length is configurable.
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Description: This cop checks for ambiguous block association with method when param passed without parentheses.
+  Enabled: false
+
+Metrics/AbcSize:
+  Description: This cop checks that the ABC size of methods is not higher than the configured maximum.
+  Enabled: false
+
+Metrics/BlockLength:
+  Description: This cop checks if the length of a block exceeds some maximum value.
+  Enabled: false
+
+Metrics/ClassLength:
+  Description: This cop checks if the length a class exceeds some maximum value.
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Description: A complexity metric that is strongly correlated to the number of test
+    cases needed to validate a method.
+  Enabled: false
+  Max: 6
+
+Metrics/MethodLength:
+  Description: This cop checks if the length of a method exceeds some maximum value.
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Description: A complexity metric geared towards measuring complexity for a human reader.
+  Enabled: false
+  Max: 7
+
+Style/DateTime:
+  Description: This cop checks for consistent usage of the DateTime class over the Time class.
+  Enabled: false
+
+Style/Documentation:
+  Description: This cop checks for missing top-level documentation of classes and modules.
+  Enabled: false
+
+Style/FormatStringToken:
+  Description: This cop checks for a consistent style for named format string tokens.
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: Add the frozen_string_literal comment to the top of files to help transition from Ruby 2.3.0 to Ruby 3.0.
+  Enabled: true
+
+Style/For:
+  Description: Checks use of for or each in multiline loops.
+  StyleGuide: https://github.com/rubocop-hq/ruby-style-guide#no-for-loops
+  Enabled: false
+  EnforcedStyle: each
+  SupportedStyles:
+  - for
+  - each
+
+Style/NumericLiteralPrefix:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Description: Use / or %r around regular expressions.
+  StyleGuide: https://github.com/rubocop-hq/ruby-style-guide#percent-r
+  Enabled: false
+  EnforcedStyle: slashes
+  SupportedStyles:
+  - slashes
+  - percent_r
+  - mixed
+  AllowInnerSlashes: false
+
+Security/Eval:
+  Description: The use of eval represents a serious security risk.
+  Enabled: true
+
+Style/AsciiComments:
+  Description: 日本語のコメント等を使えるように
+  Enabled: false
+
+# Style/AccessModifierDeclarations:
+#   Description: private def ...を使えるように
+#   Enabled: false
+
+Style/RescueModifier:
+  Description: Pry.commands.alias_command 'c', 'continue' rescue nil のようなrescue nil系を許容する
+  Enabled: false
+
+Style/NumericLiterals:
+  Description: number表記で3桁区切りはしない
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Description: 一つのit内に複数のexpectを入れたい
+  Enabled: false
+
+RSpec/NotToNot:
+  Description: not_toでいい
+  Enabled: false
+
+RSpec/ExampleLength:
+  Description: 長い行のspecでもいい
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Description: 多いletを許容したい
+  Enabled: false
+
+RSpec/ImplicitExpect:
+  Description: shoulda_matchersでshouldを使いたい
+  Enabled: false
+
+Style/BlockComments:
+  Description: ブロックコメントの許可
+  Enabled: false
+
+RSpec/RepeatedExample:
+  Description: punditを使ったpolicy specは同名itは許容
+  Exclude:
+    - 'spec/policies/**/*_policy_spec.rb'
+
+RSpec/RepeatedDescription:
+  Description: punditを使ったpolicy specは同名itは許容
+  Exclude:
+    - 'spec/policies/**/*_policy_spec.rb'
+
+RSpec/NamedSubject:
+  Description: 頭にsubjectを入れてitで使い回す
+  Enabled: false
+
+RSpec/MessageSpies:
+  Description: expect(xxx).to receive(:method) を許容する
+  Enabled: false
+
+RSpec/AnyInstance:
+  Description: expect_any_instance_of (allow_..) を許容する
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Description: update_attributeを許可
+  Enabled: false
+
+Layout/HeredocIndentation:
+  Description: ヒアドキュメントのインデントは気にしない
+  Enabled: false
+
+Naming/HeredocDelimiterNaming:
+  Description: ヒアドキュメントの名前は気にしない
+  Enabled: false
+
+RSpec/RepeatedExampleGroupBody:
+  Description: DRYではないcontext内部を許可したい
+  Enabled: false
