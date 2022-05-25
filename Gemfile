@@ -2,5 +2,4 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
 gem 'solargraph', '~> 0.44.3'

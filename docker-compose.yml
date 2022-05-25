@@ -3,10 +3,11 @@ version: '3'
 services:
   solargraph:
     build: .
+    platform: linux/amd64
     environment:
       TZ: 'Asia/Tokyo'
       BUNDLE_PATH: /bundle/vendor
-    command: bundle exec solargraph socket --host=0.0.0.0 --port=7658
+    command: /bin/ash -c "bundle exec solargraph socket --host=0.0.0.0 --port=7658"
     ports:
       - 7658:7658
     environment:
